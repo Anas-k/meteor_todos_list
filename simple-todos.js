@@ -1,20 +1,20 @@
 
 
+Tasks = new Mongo.Collection("tasks");
+
+
+
 if (Meteor.isClient) {
 
   // This code only runs on the client
 
   Template.body.helpers({
 
-    tasks: [
+    tasks: function () {
 
-      { text: "This is task 1" },
+      return Tasks.find({});
 
-      { text: "This is task 2" },
-
-      { text: "This is task 3" }
-
-    ]
+    }
 
   });
 
